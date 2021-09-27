@@ -1,0 +1,94 @@
+@{
+    // Assets
+    var favicon = "";
+
+    // Stylesheets
+    var stylesheet = ExecutionContext.GetLink("assets/css/site.theme.css");
+    
+
+    // Javascript
+    var kubeJs = ExecutionContext.GetLink("assets/js/kube.min.js");
+    var kubeAddonsJs = ExecutionContext.GetLink("assets/js/kube.addons.min.js");
+    var siteJs = ExecutionContext.GetLink("assets/js/site.js");
+
+    // Page Info
+    var title = Document.GetString(Constants.StylizedTitle) ?? Document.GetString(Constants.Title);
+    var ogTitle = Document.GetString(Constants.OpenGraphTitle) ?? title;
+    var ogDescription = Document.GetString(Constants.OpenGraphDescription) ?? string.Empty;
+}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>@title - Sarah Aster</title>
+        <meta name="description" content="Portfolio of Sarah Aster">
+        <link rel="canonical" href="@ExecutionContext.GetLink()">
+        <meta name="og:image" content="">
+        <meta name="og:site_name" content="SarahAster Art">
+        <meta name="og:title" content="@ogTitle">
+        <meta name="og:url" content="@ExecutionContext.GetLink(Document, true)">
+        <meta name="og:description" content="@ogDescription">
+
+        <link rel="icon" href="@favicon">
+
+        <link rel="stylesheet" href="@stylesheet">
+
+        <script data-search-pseudo-elements defer src="https://kit.fontawesome.com/be5b28eb1a.js" crossorigin="anonymous"></script>
+    </head>
+
+    @{
+        string indexUrl = ExecutionContext.GetLink("index.html");
+        string termsUrl = ExecutionContext.GetLink("terms.html");
+
+        var docPath = Document.GetLink();
+        bool indexActive = docPath == indexUrl;
+        bool termsActive = docPath == termsUrl;
+        
+        string indexActiveClass = indexActive ? "active" : string.Empty;
+        string termsActiveClass = termsActive ? "active" : string.Empty;
+    }
+
+    <body class="d-flex flex-column min-vh-100">
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="@indexUrl">
+                        Sarah Aster Art
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
+                            <li class="nav-item">
+                                <a class="nav-link @indexActiveClass" @{if (indexActive) { <text>aria-current="page"</text>} } href="xref:index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @termsActiveClass" @{if (termsActive) { <text>aria-current="page"</text>} } href="xref:terms">Terms</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>        
+
+        <main>
+            <div class="container-md">
+                <div class="card">
+                    <div class="card-body">
+                        @RenderBody()
+                    </div>
+                </div>                
+            </div>
+        </main>
+
+        <footer class="footer mt-auto text-light">
+            <partial name="_footer" />
+        </footer>
+
+        <!-- Javascript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
+</html>

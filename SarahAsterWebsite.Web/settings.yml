@@ -1,0 +1,6 @@
+LinksUseHttps: true
+MirrorResources: true
+EditLink: => "https://github.com/Foxtrek64/SarahAsterWebsite/blob/main/input/" + doc.Source.GetRelativeInputPath()
+GatherHeadingsLevel: 3
+OpenGraphDescription: "Anthro Artist Aster"
+# Host: Configured in Program.cs

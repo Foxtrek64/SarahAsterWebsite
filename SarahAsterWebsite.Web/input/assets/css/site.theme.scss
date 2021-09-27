@@ -1,0 +1,87 @@
+// Vars Override
+@import "./site.theme.vars.scss";
+
+// Themify Engine
+@import "./themify.scss";
+
+// Bootstrap
+@import "./Bootstrap/bootstrap.scss";
+@import "./bootswatch.scss";
+
+// Helpers
+@mixin font-awesome($content, $weight)
+{
+    font-family: "Font Awesome 5 Pro";
+    font-weight: $weight;
+    content: $content;
+}
+
+@mixin font-awesome-solid($content) {
+    @include font-awesome($content, $fa-regular);
+}
+
+@mixin font-awesome-regular($content) {
+    @include font-awesome($content, $fa-regular);
+}
+@mixin font-awesome-light($content) {
+    @include font-awesome($content, $fa-light);
+}
+@mixin font-awesome-duotone($content) {
+    @include font-awesome($content, $fa-duotone);
+}
+@mixin font-awesome-brands($content) {
+    @include font-awesome($content, $fa-brands);
+}
+@mixin font-awesome-kits($content) {
+    @include font-awesome($content, $fa-kits);
+}
+
+body {
+    background-color: #c3d6e2;
+}
+
+.navbar.bg-dark {
+    background-color: #7894EB !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #3A5493;
+}
+
+.navbar-nav .nav-link {
+    border-radius: $border-radius-lg-sketchy;
+    border-style: solid;
+    border-color: transparent;
+
+    .navbar-dark & {
+        &:hover {
+            border-color: rgba(#fff, 0.5);
+        }
+    
+        &.active {
+            border-color: #fff;
+        }
+
+    }
+
+    .navbar-light & {
+        &:hover {
+            border-color: #333;
+        }
+        &.active {
+            border-color: #000;
+        }
+    }
+}
+
+main {
+    margin-top: 80px;
+}
+
+footer {
+    background-color: #3a3833;
+    
+    .text-muted {
+        color: initial !important;
+    }
+}

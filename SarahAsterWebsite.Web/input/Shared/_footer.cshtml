@@ -1,0 +1,30 @@
+<ul class="list-unstyled">
+    <li>
+        <nav>
+            <ul class="list-inline text-center">
+                <li class="list-inline-item"><a href="xref:privacy" class="link-light">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="xref:terms" class="link-light">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </li>
+    <li class="text-center">Copyright &copy; Sarah Aster <span id="year"></span>, all rights reserved.</li>
+    <li class="text-center text-light text-opacity-50">Powered by <a class="link-light" href="https://statiq.dev/" is-external="true" show-icon="false">Statiq</a> and <a class="link-light" href="https://github.com/Foxtrek64/SarahAsterWebsite" is-external="true" show-icon="false">GitHub Pages</a>.</li>
+    <li class="text-center text-light text-opacity-50">Site built by <a class="link-light" href="https://www.luzfaltex.com" is-external="true" show-icon="true">LuzFaltex</a>.</li>
+    <li>
+        <nav>
+            <ul class="list-inline text-center">
+                <li class="list-inline-item"><a class="link-light" href="https://discord.com" is-external="true" show-icon="false"><i class="fab fa-discord fa-4x"></i></a></li>
+                <li class="list-inline-item"><a class="link-light" href="https://www.furaffinity.net" is-external="true" show-icon="false"><img style="max-height: 64px" src="https://www.furaffinity.net//themes/beta/img/banners/fa_logo.png?v2"></a></li>
+            </ul>
+        </nav>
+    </li>
+</ul>
+
+<script>
+    const startupYear = 2018;
+    let currentYear = new Date().getUTCFullYear();
+
+    document.getElementById("year").innerText = (currentYear > startupYear)
+        ? startupYear + "-" + currentYear
+        : startupYear.toString();
+</script>
